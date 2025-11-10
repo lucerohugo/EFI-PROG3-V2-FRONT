@@ -1,0 +1,170 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+label { font-weight: 600; }
+.p-card { box-shadow: 0 8px 24px rgba(0,0,0,.25) !important; }
+.p-inputtext, .p-password-input { height: 44px; }
+
+nav a { text-decoration: none; margin-right: 14px; }
+
+.p-input-icon-left > .p-inputtext,
+.p-input-icon-left > .p-password-input {
+  padding-left: 2.5rem !important;
+}
+
+/* Evitar centrado global que rompe formularios */
+#root { text-align: initial; }
+
+/* Card y textos */
+.login-card .p-card-content { padding-top: 0 !important; }
+.text-muted { color: #9aa4b2; }
+
+/* Bloques de formulario */
+.field { display: flex; flex-direction: column; gap: .5rem; }  /* label + input + error */
+.field-label { font-weight: 600; }
+
+/* Altura y padding de inputs (ya tenías height, mantengo) */
+.p-inputtext, .p-password-input { height: 44px; }
+
+/* Ícono a la izquierda: asegura espacio suficiente dentro del input */
+.p-input-icon-left > .p-inputtext,
+.p-input-icon-left > .p-password-input {
+  padding-left: 2.5rem !important;
+}
+
+/* Ajuste fino del ícono para que no toque el borde */
+.p-input-icon-left > i {
+  left: .75rem;              /* separa del borde izquierdo */
+}
+
+/* Espaciado vertical consistente entre controles */
+.space-y-4 > * + * { margin-top: 1rem; }
+
+/* Igualar estilo de InputNumber con InputText/Password */
+.p-inputnumber,
+.p-inputnumber-input {
+  width: 100% !important;
+  height: 44px !important; /* mismo alto que .p-inputtext */
+  box-sizing: border-box;
+}
+
+/* ======== HERO ======== */
+.hero {
+  position: relative;
+  min-height: 56vh;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url('/hero-rc.jpg') center/cover no-repeat;
+}
+
+/* si no tenés imagen, queda un degradé prolijo */
+.hero:has(.hero__content):not(:has(img)) {
+  background:
+    linear-gradient(120deg, #0a3d91 0%, #0a69c3 50%, #0aa0f3 100%);
+}
+
+.hero__content {
+  width: min(1100px, 92%);
+  display: grid;
+  gap: 16px;
+  color: #fff;
+}
+
+.hero__title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.hero__subtitle {
+  opacity: .9;
+}
+
+/* ======== SEARCH BAR ======== */
+.searchBar {
+  margin-top: 8px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+.searchBar__field .label {
+  display: block;
+  font-size: 12px;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+.searchBar__btn {
+  height: 42px;
+  padding: 0 18px;
+}
+
+/* Pills para contexto en Rooms */
+.pill {
+  background: #0a69c31a;
+  color: #0a69c3;
+  border: 1px solid #0a69c333;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .searchBar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .searchBar {
+    grid-template-columns: 1fr;
+  }
+}
