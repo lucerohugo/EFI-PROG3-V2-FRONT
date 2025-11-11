@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listUsers as listClients, deleteUser as deleteClient } from '../../services/users';
+import { listClients, deleteClient } from '../../services/clients';
 import { formatDNI, formatCellAR } from '../../utils/formatters';
 
 export default function ClientsPage() {
@@ -26,26 +26,26 @@ export default function ClientsPage() {
 
 
   const onDelete = async (id) => {
-    if (!confirm('¿Eliminar este usuario? Esta acción eliminará también todas sus reservas.')) return;
+    if (!confirm('¿Eliminar este cliente? Esta acción eliminará también todas sus reservas.')) return;
     try { 
       await deleteClient(id); 
       await cargar(); 
-      setMsg('Usuario eliminado exitosamente');
+      setMsg('Cliente eliminado exitosamente');
     } catch(e) { 
-      setMsg('Error al eliminar usuario'); 
+      setMsg('Error al eliminar cliente'); 
     }
   };
 
   return (
     <div className="page">
-      <h2 className="h2">Gestión de Usuarios</h2>
-      <p className="cardDesc">Administra todos los usuarios del sistema (clientes, empleados y administradores)</p>
+      <h2 className="h2">Gestión de Clientes</h2>
+      <p className="cardDesc">Administra los clientes del hotel</p>
 
 
 
       {msg && <div className="notice">{msg}</div>}
       {loading ? <div>Cargando...</div> : (
-        rows.length === 0 ? <div className="cardDesc">No hay usuarios registrados</div> : (
+        rows.length === 0 ? <div className="cardDesc">No hay clientes registrados</div> : (
           <div className="tableWrap">
             <table className="table">
               <thead>

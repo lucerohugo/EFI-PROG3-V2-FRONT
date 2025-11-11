@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {(rol === 'admin' || rol === 'empleado') && (
           <>
-            <NavLink to="/clientes" className={linkClass}>Usuarios</NavLink>
+            <NavLink to="/clientes" className={linkClass}>Clientes</NavLink>
             <NavLink to="/reservas/por-usuario" className={linkClass}>Reservas</NavLink>
           </>
         )}
@@ -32,7 +32,7 @@ export default function Navbar() {
         )}
 
         {rol === 'admin' && (
-          <NavLink to="/usuarios/roles" className={linkClass}>Roles</NavLink>
+          <NavLink to="/usuarios/roles" className={linkClass}>Usuarios</NavLink>
         )}
       </nav>
 
