@@ -17,6 +17,7 @@ import RoomsRoutes from './layouts/rooms';
 import ClientsRoutes from './layouts/clients';
 import ReservationsRoutes from './layouts/reservations';
 import UserProfile from './layouts/users/UserProfile';
+import AdminRoomsPage from './layouts/rooms/AdminRoomsPage';
 
 import './App.css';
 
@@ -54,6 +55,16 @@ function App() {
               element={
                 <PrivateRoute roles={['admin', 'empleado']}>
                   <ClientsRoutes />
+                </PrivateRoute>
+              }
+            />
+
+            {/* Admin Habitaciones: solo admin */}
+            <Route
+              path="/admin/habitaciones"
+              element={
+                <PrivateRoute roles={['admin']}>
+                  <AdminRoomsPage />
                 </PrivateRoute>
               }
             />

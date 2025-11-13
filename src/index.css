@@ -1,3 +1,9 @@
+/* ===== IMPORTS ===== */
+@import './styles/tokens.css';
+@import './styles/components.css';
+@import './styles/utilities.css';
+
+/* ===== LEGACY VARIABLES (mantener para compatibilidad) ===== */
 :root{
   --bg:#0f1115;
   --panel:#151923;
@@ -5,8 +11,8 @@
   --card:#1e2432;
   --text:#e8ecf3;
   --muted:#9aa6b2;
-  --primary:#7c5cff;
-  --primary-2:#6545ee;
+  --primary:#2D7D80;         /* Actualizado a paleta cálida */
+  --primary-2:#235f61;
   --ok:#20c997;
   --warn:#f59f00;
   --danger:#ff6b6b;
@@ -49,6 +55,16 @@ body{
 .h2{ font-size:22px; font-weight:800; margin:12px 0 14px; }
 
 .cards{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:16px; }
+.gridCards{ 
+  display:grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap:24px; 
+}
+@media (max-width: 768px) {
+  .gridCards {
+    grid-template-columns: 1fr;
+  }
+}
 .card{
   background: linear-gradient(180deg, var(--panel), var(--panel-2));
   border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow: var(--shadow);
@@ -101,3 +117,77 @@ body{
 /* LINKS */
 a{ color:#b7c6ff; }
 a:hover{ color:#d7e0ff; }
+
+/* MODALS */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--primary-2);
+}
+
+.badge.success {
+  color: #00d3a7;
+  border-color: #124a3e;
+  background: #0e2d29;
+}
+
+.badge.warning {
+  color: #f8c537;
+  border-color: #4e4210;
+  background: #2a240d;
+}
+
+.badge.info {
+  color: #6eb5ff;
+  border-color: #1e3a5f;
+  background: #0f2038;
+}

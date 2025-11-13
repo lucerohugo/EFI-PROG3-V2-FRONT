@@ -1,0 +1,370 @@
+/**
+ * components.css - Componentes UI reutilizables
+ * Clases auxiliares para reducir estilos inline
+ * NO reemplaza clases existentes, solo las extiende
+ */
+
+/* ===== MODAL COMPONENTS ===== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.modal-close-btn {
+  padding: var(--space-1) var(--space-3);
+  min-width: auto;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modal-section-title {
+  margin: 0 0 var(--space-3) 0;
+  color: #374151;
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.modal-detail-grid {
+  display: grid;
+  gap: var(--space-2);
+  font-size: var(--font-sm);
+}
+
+.modal-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-detail-label {
+  color: #6b7280;
+}
+
+.modal-detail-value {
+  font-weight: var(--font-weight-medium);
+}
+
+.modal-footer {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: flex-end;
+  margin-top: var(--space-6);
+}
+
+/* ===== FORM COMPONENTS ===== */
+.form-field {
+  margin-bottom: var(--space-4);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .form-grid .form-field:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+.form-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.form-field-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.form-helper-text {
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  margin-top: var(--space-1);
+  display: block;
+}
+
+/* Label ya existe como .label, agregamos variantes */
+.label-inline {
+  display: inline-block;
+  margin-right: var(--space-2);
+}
+
+/* ===== BUTTON VARIANTS ===== */
+.btn-icon-only {
+  padding: var(--space-1) var(--space-2);
+  min-width: auto;
+}
+
+.btn-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.btn-group {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-flex {
+  flex: 1;
+}
+
+/* ===== TABLE ENHANCEMENTS ===== */
+.table-cell-capitalize {
+  text-transform: capitalize;
+}
+
+.table-actions {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  align-items: center;
+}
+
+.table-actions-wide {
+  gap: var(--space-3);
+}
+
+/* ===== CARD VARIANTS ===== */
+.card-profile {
+  max-width: var(--max-width-md);
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.card-title {
+  margin: 0;
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.card-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.card-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.card-field-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: var(--font-weight-semibold);
+}
+
+.card-field-value {
+  padding: var(--space-3);
+  background-color: var(--panel);
+  border-radius: var(--radius-sm);
+}
+
+.card-field-disabled {
+  background-color: var(--panel);
+  border-radius: var(--radius-sm);
+  cursor: not-allowed;
+}
+
+/* ===== ADMIN SECTIONS ===== */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.admin-header-title {
+  margin: 0;
+}
+
+/* ===== STATES ===== */
+.state-loading {
+  text-align: center;
+  padding: var(--space-12) var(--space-8);
+  color: var(--text-muted);
+}
+
+.state-empty {
+  text-align: center;
+  padding: var(--space-16) var(--space-8);
+  color: var(--text-muted);
+}
+
+.state-error {
+  text-align: center;
+  padding: var(--space-8);
+  color: var(--danger);
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius);
+}
+
+/* ===== BADGE EXTENDED ===== */
+.badge-pill {
+  border-radius: var(--radius-full);
+}
+
+.badge-lg {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-sm);
+}
+
+/* ===== NOTICE VARIANTS ===== */
+.notice-success {
+  color: var(--success);
+  background-color: var(--success-bg);
+  border: 1px solid var(--success-border);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.notice-error {
+  color: var(--danger);
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.notice-warning {
+  color: var(--warning);
+  background-color: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.notice-info {
+  color: var(--info);
+  background-color: var(--info-bg);
+  border: 1px solid var(--info-border);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+/* ===== SVG ICONS ===== */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-md {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-lg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-inline {
+  vertical-align: middle;
+  margin-right: var(--space-1);
+}
+
+/* ===== GRID HELPERS (non-intrusive) ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus-ring:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ===== HOVER STATES ===== */
+.hover-lift {
+  transition: transform var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.hover-scale {
+  transition: transform var(--transition-base);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}

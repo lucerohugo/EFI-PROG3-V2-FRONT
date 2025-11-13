@@ -269,6 +269,29 @@ export default function RoomsPage() {
             <div className="gridCards">
               {rows.map(r => (
                 <div key={r.id} className="card" style={{ position: 'relative' }}>
+                  {r.url_imagen && (
+                    <div style={{ 
+                      width: '100%', 
+                      height: '200px', 
+                      borderRadius: '8px', 
+                      overflow: 'hidden',
+                      marginBottom: '16px'
+                    }}>
+                      <img 
+                        src={r.url_imagen} 
+                        alt={`Habitación ${r.numero_habitacion}`}
+                        style={{ 
+                          width: '100%', 
+                          height: '100%', 
+                          objectFit: 'cover' 
+                        }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
+                  
                   <div className="cardTitle">
                     Habitación #{r.numero_habitacion}
                     <div style={{ fontSize: '14px', opacity: 0.8, fontWeight: 'normal' }}>

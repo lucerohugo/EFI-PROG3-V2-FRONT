@@ -20,19 +20,22 @@ export default function Navbar() {
         <NavLink to="/" className={linkClass}>Inicio</NavLink>
         <NavLink to="/habitaciones" className={linkClass}>Habitaciones</NavLink>
 
+        {rol === 'cliente' && (
+          <NavLink to="/reservas/mis-reservas" className={linkClass}>Mis Reservas</NavLink>
+        )}
+
         {(rol === 'admin' || rol === 'empleado') && (
           <>
-            <NavLink to="/clientes" className={linkClass}>Clientes</NavLink>
             <NavLink to="/reservas/por-usuario" className={linkClass}>Reservas</NavLink>
+            <NavLink to="/clientes" className={linkClass}>Clientes</NavLink>
           </>
         )}
 
-        {rol === 'cliente' && (
-          <NavLink to="/reservas/mis-reservas" className={linkClass}>Mis reservas</NavLink>
-        )}
-
         {rol === 'admin' && (
-          <NavLink to="/usuarios/roles" className={linkClass}>Usuarios</NavLink>
+          <>
+            <NavLink to="/admin/habitaciones" className={linkClass}>Admin Habitaciones</NavLink>
+            <NavLink to="/usuarios/roles" className={linkClass}>Usuarios</NavLink>
+          </>
         )}
       </nav>
 
